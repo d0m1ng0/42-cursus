@@ -1,0 +1,112 @@
+Makedile	|
+--------------	|
+
+.a is for archive
+
+take all the files .c and change the extension
+
+SRC = file.c
+OBJS = $(SRC:.c=.o)
+	OBJS variable declaration
+	$(SRCSi...) content SRCS access
+	:.c=:.o substitute suffix .c with .o
+-> to remember 
+	$(VAR:old=new)
+this line does not compile anything, it creates a list of names. If SRCS has ft_printf.c the variable OBJS has simply the word ft+printf.o
+
+once I have the list of the objs I can give the rule to create the library 
+
+Rules	|
+--------|
+
+target: prerequisites
+	command
+target is what I want to creare: all, clean, the name of the libftprintf.a
+prerequisites: dependencies, the files or the necessary rules to build the target.
+command: the action to do, preceded by TAB
+
+all is the unique rule doesn't do anything byt to call the prncipal target
+all : $(NAME)
+---	----
+|	-> real target must be created
+|->formal target
+
+so when I do
+	make
+then it search
+	all
+and "all" says "to finish I need exists $(NAME)
+
+$(NAME):  OBJS(OBJS)
+	ar rcs $(NAME) $(OBJS)	
+$(NAME) says "to be build I need all the files $(OBJS)"
+when the objects are ready it executes the command ar rcs
+ar creates an archive:many little packages are created .o and are packaged into a file .zip or .tar optimized to the compiler.
+what does ar rcs libftprintf.a *.c does ?
+r - replace or if .o it is already inside it is updated
+c - create the library if it does not exist
+s - sort create an index of symbols inside thant helps the compiler to find quickly the file .c inside the archive, example ft_printf.c
+
+IMPLICIT RULE
+%.o:%.c
+	...
+	$<c means the source file
+	$@ means the file target
+
+clean : NO PREREQUISITES 
+	rm -f OBJECTS
+fclean : clean
+	-------
+	ensure that clean has been done then fclean
+	rm -rf libftprintf.a
+
+RELINK
+re : fclean name
+	    ----
+	    target all
+     -------
+     first execute target fclean then target all
+.PHONY
+it is useful to discoupling the name of a rule from the existence of a real file
+
+
+========BUILDING===========================================
+ft_printf must take many arguments "..."
+
+	<type> ft_printf(<argument>, ...)
+
+where I can put all these extra arguments ?
+a box is needed
+	va_list args (variadic arguments list)
+	HOW TO THINK
+	where do I put all these extra arguments? 
+	-> declaration and creation of the box
+		va_list args; (variadic arguments list)
+
+opening the stock (box)
+	the stock is closed it must be opened and establish from were to start counting
+	-> open the stock after the last known parameter "format"
+		va_start(args, format);
+
+loop: a while to run in the string character by character
+
+
+close the stock
+	-> va_end(args);
+
+in the end how many pieces gave
+	lenght
+
+==================================
+DETAILS
+a loop while where:
+format == '%' arrive until you see %
+format[i+1] if at i I had '%' then i+1 is the 'letter after %'
+	-> ft_printf("hello world %d", 42);
+	format[i] at '%'
+	then format[i] ad 'd'
+
+a funcion ft_format will print the number or the string and return the number of bytes printed.
+that number must be added to the length counter.
+
+ft_putchar_fd_len: prints a char and returns the  1
