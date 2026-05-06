@@ -1,0 +1,6 @@
+1 - First line
+2 - Second line with more text to see how to it is dealt
+3 - Third
+
+5 - Fifth linea (the fourth was empty)
+6 - Sixth line without newline at the end

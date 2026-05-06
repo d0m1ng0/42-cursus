@@ -1,0 +1,19 @@
+ Albert Camus
+
+1. Blessed are the hearts that can bend; they shall never be broken.
+2. Without work, all life goes rotten, but when work is soulless, life stifles and dies.
+3. The principle can be established that for a man who does not cheat what he believes to be true must determine his action.
+4. To be happy, we must not be too concerned with others.
+5. A world that can be explained even with bad reasons is a familiar world. But, on the other hand, in a universe suddenly divested of illusions and lights, man feels an alien, a stranger. His exile is without remedy since he is deprived of the memory of a lost home or the hope of a promised land. This divorce between man and this life, the actor and his setting, is properly the feeling of absurdity.
+6. In a man’s attachment to life there is something stronger than all the ills in the world. The body’s judgment is as good as the mind’s and the body shrinks from annihilation. We get into the habit of living before acquiring the habit of thinking.
+7. It is always easy to be logical. It is almost impossible to be logical to the bitter end.
+8. All that remains is a fate whose outcome alone is fatal. Outside of that single fatality of death, everything, joy or happiness, is liberty. A world remains of which man is the sole master. What bound him was the illusion of another world.
+9. This world in itself is not reasonable, that is all that can be said. But what is absurd is the confrontation of this irrational and the wild longing for clarity whose call echoes in the human heart.
+10. Now if the absurd cancels all my chances of eternal freedom, it restores and magnifies, on the other hand, my freedom of action. That privation of hope and future means an increase in man’s availability.
+11. I have seen people behave badly with great morality and I note every day that integrity has no need of rules.
+12. The struggle itself toward the heights is enough to fill a man’s heart. One must imagine Sisyphus happy.
+13. Man is always prey to his truths. Once he has admitted them, he cannot free himself from them.
+
+The Black-Scholes model
+
+The Black-Scholes model, also known as the Black-Scholes-Merton (BSM) model, is a mathematical model for the dynamics of a financial market containing derivative investment instruments.The Black-Scholes formula for a European call option is:$$C(S, t) = N(d_1)S_t - N(d_2)Ke^{-r(T-t)}$$Where:$d_1 = \frac{1}{\sigma\sqrt{T-t}}[\ln(\frac{S_t}{K}) + (r + \frac{\sigma^2}{2})(T-t)]$$d_2 = d_1 - \sigma\sqrt{T-t}$Key Assumptions:Lognormal distribution: The price of the underlying asset follows a geometric Brownian motion with constant drift and volatility.No dividends: The underlying stock does not pay any dividends during the life of the option.Efficient markets: Market movements cannot be predicted.No commissions: There are no transaction costs.Risk-neutral valuation is the cornerstone of modern quantitative finance. It allows us to price derivatives as the expected payoff discounted at the risk-free rate.
